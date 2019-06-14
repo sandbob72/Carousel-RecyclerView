@@ -31,61 +31,45 @@ class InfiniteCarouselActivity : AppCompatActivity(),DiscreteScrollView.OnItemCh
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infinite_scroll_carousel)
-        supportActionBar?.let {
-            supportActionBar?.title = "Infinite Carousel"
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
 
-        val I1 = findViewById<DiscreteScrollView>(R.id.infinite_carousel_1)
+
         mAdapter = MyAdapter(arrayList)
 
-//        // Infinite scroll
-//        mInfiniteScrollWrapper = InfiniteScrollAdapter.wrap(mAdapter)
-//        I1.adapter = mInfiniteScrollWrapper
-//
-//        // Item transformer
-//        I1.setItemTransformer(InfiniteCarouselTransformer())
-//
-//        // Item change listener
-//        I1.addOnItemChangedListener(this)
 
-        //-----------------------------------------------------------------------//
-
+        //DiscreteScrollView--------------------------------------------------------------------------------//
+        // Infinite scroll
         mInfiniteScrollWrapper = InfiniteScrollAdapter.wrap(mAdapter)
-        infinite_carousel_2.adapter = mInfiniteScrollWrapper
+        infinite_carousel_1.adapter = mInfiniteScrollWrapper
 
         // Item transformer
-        infinite_carousel_2.setItemTransformer(InfiniteCarouselTransformer())
+        infinite_carousel_1.setItemTransformer(InfiniteCarouselTransformer())
 
         // Item change listener
-        infinite_carousel_2.addOnItemChangedListener(this)
+        infinite_carousel_1.addOnItemChangedListener(this)
 
         // data
         loadData()
+        //DiscreteScrollView--------------------------------------------------------------------------------//
 
-        //-----------------------------------------------------------------------------------------------------
 
-        //recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        //RecyclerView-------------------------------------------------------------------------------------------------//
         recycler.layoutManager = CenterZoomLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         recycler.adapter = MyAdapter(arrayList)
 
         val snapHelper: SnapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(recycler)
+        //------------------------------------------------------------------------------------------------------------//
 
 
+        //RecyclerView Indicator Library----------------------------------------------------------------------//
         pageIndicator.attachTo(recycler)
         indicator.attachToRecyclerView(recycler)
-
         recycler.addItemDecoration(CirclePagerIndicatorDecoration())
+        //----------------------------------------------------------------------------------------------------//
 
-//        val pageIndicators = DiscreteScrollViewIndicator.Builder(infinite_carousel_2)
-//        infinite_carousel_2.addItemDecoration(pageIndicators)
-
-
-
-
-
-
+        //DiscreteScrollViewIndicator Indicator use DiscreteScrollViewIndacator.java "No Complete"
+//        val pageIndicators = DiscreteScrollViewIndicator.Builder(infinite_carousel_1)
+//        indicatorDiscreteScrollView.addItemDecoration(pageIndicators)
 
 
         //-----------------------------------------------------------------------------------------------------
