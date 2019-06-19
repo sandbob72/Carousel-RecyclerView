@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.example.application_job.viewmodel.DataViewModel
 import kotlinx.android.synthetic.main.my_item.view.*
+
 
 class MyAdapter(
     private val mutableList: ArrayList<MyItem>
