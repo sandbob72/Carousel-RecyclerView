@@ -13,31 +13,32 @@
                   tools:context="com.example.application_job.carousels.InfiniteCarouselActivity">
 
 
-
-        <com.yarolegovich.discretescrollview.DiscreteScrollView
-                android:id="@+id/infinite_carousel_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-        </com.yarolegovich.discretescrollview.DiscreteScrollView>
-        <com.yarolegovich.discretescrollview.DiscreteScrollView
-                android:id="@+id/infinite_carousel_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-        </com.yarolegovich.discretescrollview.DiscreteScrollView>
-
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
         <com.chahinem.pageindicator.PageIndicator
                 android:id="@+id/pageIndicator"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-        />
+                android:layout_height="wrap_content"/>
         <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
                 android:id="@+id/indicator"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <com.chahinem.pageindicator.PageIndicator
+                android:id="@+id/pageIndicator2"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+                android:id="@+id/indicator2"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
