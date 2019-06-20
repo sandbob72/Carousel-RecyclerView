@@ -4,42 +4,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              tools:context="com.example.application_job.carousels.InfiniteCarouselActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  tools:context="com.example.application_job.carousels.InfiniteCarouselActivity">
 
 
-    <com.yarolegovich.discretescrollview.DiscreteScrollView
-            android:id="@+id/infinite_carousel_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:dsv_orientation="horizontal" />
-    <com.yarolegovich.discretescrollview.DiscreteScrollView
-            android:id="@+id/indicatorDiscreteScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+                android:id="@+id/infinite_carousel_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        </com.yarolegovich.discretescrollview.DiscreteScrollView>
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+                android:id="@+id/infinite_carousel_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        </com.yarolegovich.discretescrollview.DiscreteScrollView>
 
-    <com.chahinem.pageindicator.PageIndicator
-            android:id="@+id/pageIndicator"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-    />
-    <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
-            android:id="@+id/indicator"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.chahinem.pageindicator.PageIndicator
+                android:id="@+id/pageIndicator"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        />
+        <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+                android:id="@+id/indicator"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>

@@ -1,16 +1,22 @@
 package com.example.application_job.carousels
 
+import android.content.res.Resources
+import android.graphics.Color
+import android.graphics.Color.rgb
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
 import android.support.v7.widget.SnapHelper
 import android.util.Log
+import com.bumptech.glide.load.engine.Resource
+import com.example.application_job.DiscreteScrollViewIndicator
 import com.example.application_job.carousels.CenterZoomLayoutManager
 import com.example.application_job.MyAdapter
 import com.example.application_job.MyItem
 import com.example.application_job.R
 import com.example.application_job.transformer.CirclePagerIndicatorDecoration
+import com.example.application_job.transformer.InfiniteCarouselTransformer
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter
 import kotlinx.android.synthetic.main.activity_infinite_scroll_carousel.*
@@ -52,15 +58,15 @@ class InfiniteCarouselActivity : AppCompatActivity(), DiscreteScrollView.OnItemC
 
 
         //DiscreteScrollView--------------------------------------------------------------------------------//
-//        // Infinite scroll
-//        mInfiniteScrollWrapper = InfiniteScrollAdapter.wrap(mAdapter)
-//        infinite_carousel_1.adapter = mInfiniteScrollWrapper
-//
-//        // Item transformer
-//        infinite_carousel_1.setItemTransformer(InfiniteCarouselTransformer())
-//
-//        // Item change listener
-//        infinite_carousel_1.addOnItemChangedListener(this)
+        // Infinite scroll
+        mInfiniteScrollWrapper = InfiniteScrollAdapter.wrap(mAdapter)
+        infinite_carousel_1.adapter = mInfiniteScrollWrapper
+
+        // Item transformer
+        infinite_carousel_1.setItemTransformer(InfiniteCarouselTransformer())
+
+        // Item change listener
+        infinite_carousel_1.addOnItemChangedListener(this)
         //DiscreteScrollView--------------------------------------------------------------------------------//
 
         // data
@@ -68,23 +74,32 @@ class InfiniteCarouselActivity : AppCompatActivity(), DiscreteScrollView.OnItemC
 
 
         //RecyclerView-------------------------------------------------------------------------------------------------//
-        recycler.layoutManager = CenterZoomLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
-        recycler.adapter = MyAdapter(arrayList)
+//        recycler.layoutManager = CenterZoomLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
+//        recycler.adapter = MyAdapter(arrayList)
 
-        val snapHelper: SnapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(recycler)
+//        val snapHelper: SnapHelper = LinearSnapHelper()
+//        snapHelper.attachToRecyclerView(recycler)
         //------------------------------------------------------------------------------------------------------------//
 
 
         //RecyclerView Indicator Library----------------------------------------------------------------------//
-        pageIndicator.attachTo(recycler)
-        indicator.attachToRecyclerView(recycler)
-        recycler.addItemDecoration(CirclePagerIndicatorDecoration())
+//        pageIndicator.attachTo(recycler)
+//        indicator.attachToRecyclerView(recycler)
+//        recycler.addItemDecoration(CirclePagerIndicatorDecoration())
         //----------------------------------------------------------------------------------------------------//
 
         //DiscreteScrollViewIndicator Indicator use DiscreteScrollViewIndacator.java "No Complete"
-//        val pageIndicators = DiscreteScrollViewIndicator.Builder(infinite_carousel_1)
-//        indicatorDiscreteScrollView.addItemDecoration(pageIndicators)
+
+        val DP = Resources.getSystem().displayMetrics.density
+        val pageIndicators = DiscreteScrollViewIndicator.Builder(infinite_carousel_1)
+            .setColorActive(rgb(0,0,0))
+            .setColorInactive(rgb(255,0,0))
+            .setIndicatorStrokeWidth(4 * DP)
+            .setIndicatorItemPadding(10 * DP)
+            .align(DiscreteScrollViewIndicator.Alignment.PARENT_TOP)
+            .matchParentWidth()
+        infinite_carousel_2.addItemDecoration(pageIndicators)
+
         //-----------------------------------------------------------------------------------------------------
 
     }
